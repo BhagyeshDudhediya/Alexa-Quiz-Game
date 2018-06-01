@@ -130,7 +130,7 @@ def check_answer(intent, session):
     reprompt_text = speech_output = ""
     if 'Answer' in intent['slots']:
         answer = intent['slots']['Answer'].get('value')
-        if answer.lower() == session['attributes']['selectedAnswer'].lower():
+        if answer.lower() in session['attributes']['selectedAnswer'].lower():
             global points
             points = points + 1
             next_quest = get_question()
