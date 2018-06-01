@@ -96,20 +96,20 @@ def create_question_attributes(selected_question):
 
     return {"selectedAnswer": answer}
 
-def get_question():
-    questions = {}
-    questions["What is capital of India? A: New Delhi. B: Mumbai. C: Nagpur. D: Bangalore."] = 0
-    questions["What is 15th August Celebrated as in India? A: Republic Day. B: Independence Day. C: Gandhi Jayanti. D: Ambedkar Jayanti."] = 0
-    questions["Who is captain of current Indian Cricket Team? A: M. S. Dhoni. B: Rohit Sharma. C: Virat Kohli. D: Suresh Raina."] = 0
-    questions["Entomology is the science that studies. A: Human Behavior. B: Insects. C: The origin and history of technical and scientific terms. D: The formation of rocks."] = 0
-    questions["Hitler party which came into power in 1933 is known as. A: Labour Party. B: Nazi Party. C: Democratic Party. D: Congress Party."] = 0
-    questions["Who is father of geometry. A: Aristotle. B: Euclid. C: Pythagoras. D: Kepler."] = 0
-    questions["B. C. Roy award is given in the field of. A: Music. B: Journalism. C: Medicine. D: Environment."] = 0
-    questions["National Income estimates in India are prepared by? A: Planning Commission. B: Reserve Bank of India. C: Central statistical organisation. D: Indian statistical Institute."] = 0
-    questions["Which latitude passes through the middle of India? A: Equator. B: Arctic Circle. C: Tropic of Capricorn. D: Tropic of Cancer."] = 0
-    questions["Fathometer is used to measure? A: Earthquakes. B: Rainfall. C: Ocean depth. D: Sound intensity."] = 0
-    questions["Ctrl, Shift and Alt are which keys? A: Modifier Keys. B: Function Keys. C: Alphanumeric Keys. D: Adjustment Keys."] = 0
+questions = {}
+questions["What is capital of India? A: New Delhi. B: Mumbai. C: Nagpur. D: Bangalore."] = 0
+questions["What is 15th August Celebrated as in India? A: Republic Day. B: Independence Day. C: Gandhi Jayanti. D: Ambedkar Jayanti."] = 0
+questions["Who is captain of current Indian Cricket Team? A: M. S. Dhoni. B: Rohit Sharma. C: Virat Kohli. D: Suresh Raina."] = 0
+questions["Entomology is the science that studies. A: Human Behavior. B: Insects. C: The origin and history of technical and scientific terms. D: The formation of rocks."] = 0
+questions["Hitler party which came into power in 1933 is known as. A: Labour Party. B: Nazi Party. C: Democratic Party. D: Congress Party."] = 0
+questions["Who is father of geometry. A: Aristotle. B: Euclid. C: Pythagoras. D: Kepler."] = 0
+questions["B. C. Roy award is given in the field of. A: Music. B: Journalism. C: Medicine. D: Environment."] = 0
+questions["National Income estimates in India are prepared by? A: Planning Commission. B: Reserve Bank of India. C: Central statistical organisation. D: Indian statistical Institute."] = 0
+questions["Which latitude passes through the middle of India? A: Equator. B: Arctic Circle. C: Tropic of Capricorn. D: Tropic of Cancer."] = 0
+questions["Fathometer is used to measure? A: Earthquakes. B: Rainfall. C: Ocean depth. D: Sound intensity."] = 0
+questions["Ctrl, Shift and Alt are which keys? A: Modifier Keys. B: Function Keys. C: Alphanumeric Keys. D: Adjustment Keys."] = 0
 
+def get_question():
     sel_quest = random.choice(questions.keys())
     # Make sure that question is not repeated
     while 1:
@@ -119,27 +119,6 @@ def get_question():
             break
     questions[sel_quest] = 1
     return sel_quest
-
-"""def get_question():
-    return random.choice([
-        "What is capital of India? A: New Delhi. B: Mumbai. C: Nagpur. D: Bangalore.",
-        "What is 15th August Celebrated as in India? A: Republic Day. B: Independence Day. C: Gandhi Jayanti. " \
-        " D: Ambedkar Jayanti.",
-        "Who is captain of current Indian Cricket Team? A: M. S. Dhoni. B: Rohit Sharma. C: Virat Kohli. "\
-        " D: Suresh Raina.",
-        "Entomology is the science that studies. A: Human Behavior. B: Insects. " \
-        " C: The origin and history of technical and scientific terms. D: The formation of rocks.",
-        "Hitler party which came into power in 1933 is known as. A: Labour Party. B: Nazi Party. C: Democratic Party." \
-        " D: Congress Party.",
-        "Who is father of geometry. A: Aristotle. B: Euclid. C: Pythagoras. D: Kepler.",
-        "B. C. Roy award is given in the field of. A: Music. B: Journalism. C: Medicine. D: Environment.",
-        "National Income estimates in India are prepared by? A: Planning Commission. B: Reserve Bank of India." \
-        "C: Central statistical organisation. D: Indian statistical Institute.",
-        "Which latitude passes through the middle of India? A: Equator. B: Arctic Circle. C: Tropic of Capricorn. D: Tropic of Cancer.",
-        "Fathometer is used to measure? A: Earthquakes. B: Rainfall. C: Ocean depth. D: Sound intensity.",
-        "Ctrl, Shift and Alt are which keys? A: Modifier Keys. B: Function Keys. C: Alphanumeric Keys. D: Adjustment Keys."
-    ])
-"""
 
 def check_answer(intent, session):
     """ Check the answer of the question
