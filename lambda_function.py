@@ -134,13 +134,18 @@ def check_answer(intent, session):
             global points
             points = points + 1
             next_quest = get_question()
-            session_attributes = create_question_attributes(next_quest)
-            speech_output = "Great !! Correct answer! Your total Bitcoins are " + str(points) + ". Next Question. " \
+            if points == len(questions):
+                speech_output = "Great !! Correct answer! Your total Bitcoins are " + str(points) + \
+                                ". Congratulations, You Win!!"
+                reprompt_text = "Great !! Correct answer! Your total Bitcoins are " + str(points) + \
+                                ". Congratulations, You Win!!"
+            else:
+                session_attributes = create_question_attributes(next_quest)
+                speech_output = "Great !! Correct answer! Your total Bitcoins are " + str(points) + ". Next Question. " \
                             + next_quest + "."
 
-            reprompt_text = "Great !! Correct answer! Your total Bitcoins are " + str(points) + ". Next Question. " \
+                reprompt_text = "Great !! Correct answer! Your total Bitcoins are " + str(points) + ". Next Question. " \
                             + next_quest + "."
-
         else:
             speech_output = "Oops Sorry, Wrong Answer! Correct answer is " + session['attributes']['selectedAnswer'] + ". You won " + str(points) + " Bitcoins."
 
