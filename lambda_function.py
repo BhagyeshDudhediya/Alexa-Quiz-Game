@@ -157,22 +157,24 @@ def check_answer(intent, session):
         card_title, speech_output, reprompt_text, should_end_session))
 
 
-"""def repeat_question(intent, session):
+def repeat_question(intent, session):
     # Repeating the question
-    
     card_title = intent['name']
     should_end_session = False
 
     selected_answer = session['attributes']['selectedAnswer']
-    session_attributes = create_question_attributes(selected_answer)
 
-    speech_output = selected_answer
+    for each_question in questions.keys():
+        if selected_answer.lower() in each_question.lower():
+            break
 
-    reprompt_text = selected_answer
+    speech_output = each_question
+
+    reprompt_text = each_question
+    session_attributes = create_question_attributes(each_question)
 
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
-"""
 
 def next_question(intent, session):
     """ Next question
@@ -254,6 +256,8 @@ def on_intent(intent_request, session):
         return check_answer(intent, session)
     elif intent_name == "GetNextQuestion":
         return next_question(intent, session)
+    elif intent_name == "RepeatQuestion":
+        return repeat_question(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
