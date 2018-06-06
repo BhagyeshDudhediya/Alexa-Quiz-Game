@@ -107,8 +107,6 @@ def create_question_attributes(selected_question):
         answer = 'China'
     elif 'Big Bang Theory' in selected_question:
         answer = 'George Gamow'
-    elif 'first Railway Train begin to carry passengers' in selected_question:
-        answer = 'eighteen thirty AD'
     elif 'capital of Finland' in selected_question:
         answer = 'Helsinki'
     elif 'The Return of the Native' in selected_question:
@@ -128,21 +126,19 @@ questions["National Income estimates in India are prepared by? A: Planning Commi
 questions["Which latitude passes through the middle of India? A: Equator. B: Arctic Circle. C: Tropic of Capricorn. D: Tropic of Cancer."] = 0
 questions["Fathometer is used to measure? A: Earthquakes. B: Rainfall. C: Ocean depth. D: Sound intensity."] = 0
 questions["Ctrl, Shift and Alt are which keys? A: Modifier Keys. B: Function Keys. C: Alphanumeric Keys. D: Adjustment Keys."] = 0
-questions["Who is the author of the book 'New India'? A: Manik Bandopadhyay. B: Annie Besant." \
+questions["Who is the author of the book 'New India'? A: Manik Bandopadhyay. B: Annie Besant. " \
             "C: John Milton. D: None of the above."] = 0;
-questions["The celebrated Novel 'The Godfather' was authored by? A: John Milton." \
+questions["The celebrated Novel, 'The Godfather', was authored by? A: John Milton. " \
             "B: Victor Hugo. C: Mario Puzo. D: Harold Robbins."] = 0
 questions["Ankara is the capital of which country? A: Uruguay. B: Turkey. C: Uganda. D: Vanuatu."] = 0
-questions["Who was known as the 'Father of Lok sabha' in India? A: Anantasayanam. B: Bashyam. C: Mavlankar. " \
+questions["Who was known as the, 'Father of Lok sabha', in India? A: Anantasayanam. B: Bashyam. C: Mavlankar. " \
             "D: Zakir Hussain."] = 0
-questions["Who among the following persons is called as 'Desert Fox'? A: Walter Scott. B: Erwin Rommel." \
+questions["Who among the following persons is called as 'Desert Fox'? A: Walter Scott. B: Erwin Rommel. " \
             "C: Eisenhower. D: Bismarck."] = 0
-questions["The first news paper in the world was started by? A: Japan. B: China. C: India." \
+questions["The first news paper in the world was started by? A: Japan. B: China. C: India. " \
             "D: United States of America."] = 0
-questions["Who is the english physicist responsible for the 'Big Bang Theory'? A: Albert Einstein." \
+questions["Who is the english physicist responsible for the 'Big Bang Theory'? A: Albert Einstein. " \
             "B: Michael Skube. C: George Gamow. D: Roger Penrose."] = 0
-questions["When did the first Railway Train begin to carry passengers and freight? A: 1814 AD. B: 1830 AD. C: 1853 AD." \
-            "D: 1754 AD."] = 0
 questions["What is the capital of Finland? A: Conakry. B: Prague. C: Helsinki. D: Heinola"] = 0
 questions["Famous book 'The Return of the Native' is written by? A: Thomos Hardy. B: Bill Gates." \
             "C: Lioy Douglas. D: Charles Lamb."] = 0
@@ -177,6 +173,7 @@ def check_answer(intent, session):
                                 ". Congratulations, You Win!!"
                 reprompt_text = "Great !! Correct answer! Your total points are " + str(points) + \
                                 ". Congratulations, You Win!!"
+                should_end_session = True
             else:
                 next_quest = get_question()
                 session_attributes = create_question_attributes(next_quest)
